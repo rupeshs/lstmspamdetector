@@ -54,6 +54,7 @@ function predictSpam() {
 	var x = document.getElementById("messageText").value;
 	if (x=="")
 	{   wordsCount=0;
+        $("#messageType").html("<div class=\"alert alert-warning\">Waiting for input...</div>");
         $("#wordCnt").html("Words : " + wordsCount);
 		return;
 	}
@@ -72,7 +73,7 @@ function predictSpam() {
 			$("#messageType").html("<div class=\"alert alert-success\"> <h5><i  class=\"fa fa-check\"></i> Not spam.</h5></div>");
 		} else {
 		
-			$("#messageType").html("<div class=\"alert alert-danger\"><h5> <i  class=\"fa fa-ban\"></i> Oops...it is a spam!</h5></div>");
+			$("#messageType").html("<div class=\"alert alert-danger\"><h5> <i  class=\"fa fa-ban\"></i> Oops...Spam!</h5></div>");
 		}
 		$("#wordCnt").html("Words : " + wordsCount);
 	});
