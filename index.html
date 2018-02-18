@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>LSTM Spam Detector</title>
+  <meta name="description" content="LSTM Spam Detector AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/sticky-footer.css" rel="stylesheet">
+  <link href="css/nprogress.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+</head>
+<style>
+  body {
+    font-family: 'Play', sans-serif;
+  }
+</style>
+
+<body onload="LoadModel()">
+  <main role="main" class="container">
+    <h1 class="mt-5">LSTM Spam Detector</h1>
+    <p>
+      <p id="messageType"></p>
+    </p>
+    <form>
+      <div class="form-group">
+        <label for="messageText">Enter/paste message</label>
+        <textarea class="form-control" id="messageText" rows="3" oninput="predictSpam()" disabled></textarea>
+        <p id="wordCnt" class="text-muted">Words :</p>
+      </div>
+    </form>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">
+        <p>&copy; 2018
+          <a href="https://github.com/rupeshs"> Rupesh Sreeraman</a>
+        </p>
+      </span>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/keras.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nprogress.js"></script>
+
+</body>
+
+</html>
