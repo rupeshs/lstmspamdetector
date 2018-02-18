@@ -1,5 +1,4 @@
 "use strict";
-
 const SEQUENCE_LENGTH = 30;
 var wordsCount = 0;
 var dict = {};
@@ -27,8 +26,6 @@ function TextToIndexVector(text, seqlen) {
 	//console.log(wordVecPadded);
 	return wordVecPadded;
 }
-
-
 function LoadModel() {
 NProgress.start();
 $("#wordCnt").html("Loading model,please wait...");
@@ -53,17 +50,19 @@ $("#wordCnt").html("Loading model,please wait...");
 
 }
 
-
 function predictSpam() {
-
 	var x = document.getElementById("messageText").value;
+	if (x=="")
+	{   wordsCount=0;
+        $("#wordCnt").html("Words : " + wordsCount);
+		return;
+	}
 	var result = TextToIndexVector(x, SEQUENCE_LENGTH);
 	var seqIn = new Float32Array(result);
 
 	model.predict({
 		input: seqIn
 	}).then(outputData => {
-
 		/*
 		0   1
 		Ham Spam
