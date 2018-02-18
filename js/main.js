@@ -16,7 +16,7 @@ function TextToIndexVector(text, seqlen) {
 		if (wordVec.length != seqlen) {
 			if (word in dict) {
 				wordVec.push(dict[word])
-				console.log(dict[word] + " " + word);
+				
 			} else {
 				wordVec.push(0)
 			}
@@ -24,7 +24,7 @@ function TextToIndexVector(text, seqlen) {
 
 	});
 	var wordVecPadded = wordVec.concat(Array(seqlen).fill(0)).slice(0, seqlen);
-	console.log(wordVecPadded);
+	//console.log(wordVecPadded);
 	return wordVecPadded;
 }
 
@@ -33,7 +33,7 @@ function LoadModel() {
 NProgress.start();
 $("#wordCnt").html("Loading model,please wait...");
 	$.getJSON("wordindex.json", function (json) {
-		console.log(json); 
+		
 		dict = json;
 		});
 	model = new KerasJS.Model({
