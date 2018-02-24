@@ -1,5 +1,5 @@
 "use strict";
-const SEQUENCE_LENGTH = 30;
+const SEQUENCE_LENGTH = 654;
 var wordsCount = 0;
 var dict = {};
 var model;
@@ -7,6 +7,7 @@ var model;
 function TextToIndexVector(text, seqlen) {
 
 	var wordVec = new Array();
+	text=text.toLowerCase();
 	var wordlst = text.split(/\s+/);
 	wordsCount = wordlst.length;
 
@@ -49,15 +50,25 @@ $("#wordCnt").html("Loading model,please wait...");
 
 
 }
-
-function predictSpam() {
+function checkInput()
+{
 	var x = document.getElementById("messageText").value;
 	if (x=="")
 	{   wordsCount=0;
+        $("#detectBtn").prop('disabled', true);
         $("#messageType").html("<div class=\"alert alert-warning\">Waiting for input...</div>");
         $("#wordCnt").html("Words : " + wordsCount);
 		return;
 	}
+	else{
+		$("#detectBtn").prop('disabled', false);
+	}
+}
+function predictSpam() {
+	var x = document.getElementById("messageText").value;
+	if (x=="")
+		return;
+
 	var result = TextToIndexVector(x, SEQUENCE_LENGTH);
 	var seqIn = new Float32Array(result);
 
