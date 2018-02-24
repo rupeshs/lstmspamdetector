@@ -28,6 +28,7 @@ function TextToIndexVector(text, seqlen) {
 	return wordVecPadded;
 }
 function LoadModel() {
+$("#detectBtn").prop('disabled', true);	
 NProgress.start();
 $("#wordCnt").html("Loading model,please wait...");
 	$.getJSON("wordindex.json", function (json) {
