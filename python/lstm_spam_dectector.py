@@ -64,9 +64,6 @@ print("Validation loss: %f" % (score))
 print("Validation acc: %f" % (acc))
 model.save('spam_lstm_model.h5')
 
-res=model.predict(X_test[10].reshape(1,X_test.shape[1]))[0]
-print(str(np.argmax(Y_test[10])))
-
 ham_cnt, spam_cnt, spam_correct, ham_correct = 0, 0, 0, 0
 for x in range(len(X_validate)):
      result = model.predict(X_validate[x].reshape(1,X_validate.shape[1]),batch_size=1,verbose = 2)[0]
