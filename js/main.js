@@ -66,6 +66,7 @@ function checkInput()
 	}
 }
 function predictSpam() {
+	NProgress.start();
 	var x = document.getElementById("messageText").value;
 	if (x=="")
 		return;
@@ -80,6 +81,7 @@ function predictSpam() {
 		0   1
 		Ham Spam
 		*/
+		
 		if (outputData.output[0] > outputData.output[1]) {
 			
 			$("#messageType").html("<div class=\"alert alert-success\"> <h5><i  class=\"fa fa-check\"></i> Not spam.</h5></div>");
@@ -88,6 +90,7 @@ function predictSpam() {
 			$("#messageType").html("<div class=\"alert alert-danger\"><h5> <i  class=\"fa fa-ban\"></i> Oops...Spam!</h5></div>");
 		}
 		$("#wordCnt").html("Words : " + wordsCount);
+		NProgress.done();
 	});
 
 }
