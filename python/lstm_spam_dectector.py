@@ -1,3 +1,7 @@
+'''
+    LSTM Spam Detector 
+    Copyright(C) 2018 Rupesh Sreeraman
+'''
 import pandas as pd
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences

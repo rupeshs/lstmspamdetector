@@ -1,3 +1,7 @@
+/*
+    LSTM Spam Detector 
+    Copyright(C) 2018 Rupesh Sreeraman
+*/
 "use strict";
 const SEQUENCE_LENGTH = 654;
 var wordsCount = 0;
